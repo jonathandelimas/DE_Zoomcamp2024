@@ -11,7 +11,7 @@ WORKDIR /app
 # RUN wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
 
 COPY ingest_data.py ingest_data.py
-COPY ingest_taxi_zone_data.py ingest_taxi_zone_data.py
+# COPY ingest_taxi_zone_data.py ingest_taxi_zone_data.py
 
 ENTRYPOINT ["python", "ingest_data.py"]
 # ENTRYPOINT ["python", "pipeline.py"]

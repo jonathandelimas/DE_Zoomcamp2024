@@ -2,7 +2,7 @@ import argparse
 import pandas as pd
 import os
 import pyarrow.parquet as pq
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from time import time, sleep
 
 def main(params):
@@ -34,6 +34,9 @@ def main(params):
 
     # Data Definition Language (DDL): defines the schema
     print(pd.io.sql.get_schema(data, name='yellow_taxi_data', con=engine))
+    
+    with engine.connect() as conn:
+        conn.execute(text("CREATE SCHEMA IF NOT EXISTS dataengineeringzoomcamp;"))
 
     chunk_size = 100000
     chunk_count = 0
@@ -46,9 +49,9 @@ def main(params):
         else:
             completion = (chunk_count/df_len) * 100
         t_start = time()
-        df.to_sql(name=table, con=engine, if_exists='append')
+        df.to_sql(name=table, con=engine, if_exists='append', schema='dataengineeringzoomcamp')
         t_end = time()
-        print(f'inserted another chunk, took {(t_end-t_start):.3f} seconds. {completion:.3f} % Complete.') 
+        print(f'Inserted another chunk, took {(t_end-t_start):.3f} seconds. {completion:.3f} % Complete.') 
 
 if __name__ == '__main__':
 
@@ -61,7 +64,7 @@ if __name__ == '__main__':
     parser.add_argument('--host', help='hostname')
     parser.add_argument('--port', help='port number')
     parser.add_argument('--db', help='database name')
-    parser.add_argument('--table', help='name of the tabler')
+    parser.add_argument('--table', help='name of the table')
     parser.add_argument('--url', help='url of the csv')                   
 
     args = parser.parse_args()
