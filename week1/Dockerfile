@@ -10,11 +10,14 @@ WORKDIR /app
 # RUN wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-09.csv.gz
 # RUN wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
 
-COPY ingest_data.py ingest_data.py
+COPY pipeline.py pipeline.py
+
+# COPY ingest_data.py ingest_data.py
 # COPY ingest_taxi_zone_data.py ingest_taxi_zone_data.py
 
-ENTRYPOINT ["python", "ingest_data.py"]
-# ENTRYPOINT ["python", "pipeline.py"]
+# ENTRYPOINT ["python", "ingest_data.py"]
+ENTRYPOINT ["python", "pipeline.py"]
 
 # ENTRYPOINT ["bash"]
+
 
