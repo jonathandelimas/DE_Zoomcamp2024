@@ -1,5 +1,7 @@
-/week1/ny_taxi_postgres_data/
-/week1/gcp_terraform/dataengineeringzoomcamp2024-2a64d9ac2711.json
-/week3/.env
-/week2/mage-zoomcamp/.env
-/week3/dataengineeringzoomcamp2024-3dfcc96b7952.json
+/week1_docker_postgres/ny_taxi_postgres_data/
+/week1_docker_postgres/gcp_terraform/dataengineeringzoomcamp2024-2a64d9ac2711.json
+/week3_data_warehouse/.env
+/week2_workflow_orchestration/mage-zoomcamp/.env
+/week2_workflow_orchestration/mage-zoomcamp/dataengineeringzoomcamp2024-3dfcc96b7952.json
+/week3_data_warehouse/dataengineeringzoomcamp2024-3dfcc96b7952.json
+/week4_analytics_engineering/dataengineeringzoomcamp2024-3dfcc96b7952.json
