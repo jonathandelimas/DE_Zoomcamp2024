@@ -36,13 +36,12 @@ blocks:
   color: null
   configuration:
     data_provider: bigquery
-    data_provider_database: dataengineeringzoomcamp2024.yellow_cab
+    data_provider_database: dataengineeringzoomcamp2024
     data_provider_profile: default
-    data_provider_schema: ''
-    data_provider_table: dataengineeringzoomcamp2024.yellow_cab
+    data_provider_schema: yellow_cab_data
     dbt: {}
     disable_query_preprocessing: false
-    export_write_policy: replace
+    export_write_policy: append
     limit: 1000
     use_raw_sql: false
   downstream_blocks: []
@@ -52,7 +51,7 @@ blocks:
   language: sql
   name: write_taxi_to_bigquery
   retry_config: null
-  status: failed
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -62,7 +61,7 @@ cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-01-22 01:47:07.544134+00:00'
+created_at: '2024-03-30 01:34:39.911287+00:00'
 data_integration: null
 description: null
 executor_config: {}
@@ -79,7 +78,6 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-01-22T02:03:44+00:00'
 uuid: gcs_to_bigquery
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []

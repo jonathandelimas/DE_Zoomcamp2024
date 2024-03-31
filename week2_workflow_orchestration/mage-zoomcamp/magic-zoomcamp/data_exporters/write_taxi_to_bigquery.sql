@@ -1,1 +1,1 @@
-select * from {{ df_1 }}
+SELECT * FROM {{df_1}}

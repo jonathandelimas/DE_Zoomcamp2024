@@ -7,6 +7,10 @@ default:
   AWS_SECRET_ACCESS_KEY: "{{ env_var('AWS_SECRET_ACCESS_KEY') }}"
   AWS_SESSION_TOKEN: session_token (Used to generate Redshift credentials)
   AWS_REGION: region
+  # Algolia
+  ALGOLIA_APP_ID: app_id
+  ALGOLIA_API_KEY: api_key
+  ALGOLIA_INDEX_NAME: index_name
   # Azure
   AZURE_CLIENT_ID: "{{ env_var('AZURE_CLIENT_ID') }}"
   AZURE_CLIENT_SECRET: "{{ env_var('AZURE_CLIENT_SECRET') }}"
@@ -33,7 +37,7 @@ default:
   DUCKDB_DATABASE: database
   DUCKDB_SCHEMA: main
   # Google
-  GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/dataengineeringzoomcamp2024-3dfcc96b7952.json"
+  GOOGLE_SERVICE_ACC_KEY_FILEPATH: "./zoomcamp_gcp_key.json"
   GOOGLE_LOCATION: US # Optional
   # MongoDB
   # Specify either the connection string or the (host, password, user, port) to connect to MongoDB.
@@ -85,7 +89,7 @@ default:
   REDSHIFT_TEMP_CRED_PASSWORD: temp_password
   REDSHIFT_DBUSER: redshift_db_user
   REDSHIFT_CLUSTER_ID: redshift_cluster_id
-  REDSHIFT_IAM_PROFILE: default   
+  REDSHIFT_IAM_PROFILE: default
   # Snowflake
   SNOWFLAKE_USER: username
   SNOWFLAKE_PASSWORD: password
@@ -112,13 +116,20 @@ default:
       optimize_hash_generation: true
     source: trino-cli                         # Optional
     user: admin
-    verify: /path/to/your/ca.crt              # Optiona 
+    verify: /path/to/your/ca.crt              # Optional
+  # Weaviate
+  WEAVIATE_ENDPOINT: https://some-endpoint.weaviate.network
+  WEAVIATE_INSTANCE_API_KEY: YOUR-WEAVIATE-API-KEY
+  WEAVIATE_INFERENCE_API_KEY: YOUR-OPENAI-API-KEY
+  WEAVIATE_COLLECTION: collectionn_name
+
 dev:
-    # PostgresSQL
+  # PostgresSQL
   POSTGRES_CONNECT_TIMEOUT: 10
-  POSTGRES_DBNAME: "{{ env_var('POSTGRES_DBNAME')}}"
-  POSTGRES_SCHEMA: "{{ env_var('POSTGRES_SCHEMA')}}" # Optional
-  POSTGRES_USER: "{{ env_var('POSTGRES_USER')}}"
-  POSTGRES_PASSWORD: "{{ env_var('POSTGRES_PASSWORD')}}"
-  POSTGRES_HOST: "{{ env_var('POSTGRES_HOST')}}"
-  POSTGRES_PORT: "{{ env_var('POSTGRES_PORT')}}"
+  POSTGRES_DBNAME: "{{ env_var('POSTGRES_DBNAME') }}"
+  POSTGRES_SCHEMA: "{{ env_var('POSTGRES_SCHEMA') }}"
+  POSTGRES_USER: "{{ env_var('POSTGRES_USER') }}"
+  POSTGRES_PASSWORD: "{{ env_var('POSTGRES_PASSWORD') }}"
+  POSTGRES_HOST: "{{ env_var('POSTGRES_HOST') }}"
+  POSTGRES_PORT: "{{ env_var('POSTGRES_PORT') }}"
+
